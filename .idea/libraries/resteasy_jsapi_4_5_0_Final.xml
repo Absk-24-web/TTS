@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="resteasy-jsapi-4.5.0.Final">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../jar_files/resteasy-jsapi-4.5.0.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
