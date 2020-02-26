@@ -21,19 +21,18 @@ import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.tokenize.TokenizerModel;
 import opennlp.tools.tokenize.WhitespaceTokenizer;
 import opennlp.tools.util.InvalidFormatException;
-import opennlp.tools.util.ObjectStream;
-import opennlp.tools.util.PlainTextByLineStream;
 import opennlp.tools.util.Span;
 import java.io.*;
-import java.nio.charset.Charset;
 import java.util.Scanner;
 
 public class SentenceDetect {
         public static  Scanner scan = new Scanner(System.in);
+        public static Phonetic phonetic = new Phonetic();
+
 
     public static void main(String args[]) throws IOException {
         System.out.println("Enter the Paragraph or Sentences:");
-//        SentenceDetect();
+        SentenceDetect();
 //        Tokenize();
 //        findName();
 //        POSTag();
@@ -65,6 +64,7 @@ public class SentenceDetect {
             }
 
             System.out.println("");
+            System.out.println(phonetic.generatePhonetic(paragraph));
        // Tokenize(paragraph);
 //            POSTag(paragraph);
             chunk(paragraph);
