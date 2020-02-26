@@ -12,7 +12,9 @@ import java.io.IOException;
 
 public class POSTag {
 
-    public static void POSTag(String para) throws IOException {
+    public Normalization normalization = new Normalization();
+
+    public  void POSTag(String [] para) throws IOException {
         POSModel model = new POSModelLoader()
                 .load(new File("src/main/resources/en-pos-maxent.bin"));
         PerformanceMonitor perfMon = new PerformanceMonitor(System.err, "sent");
@@ -20,23 +22,25 @@ public class POSTag {
 
 //        Charset charset = Charset.forName("UTF-8");
 //        String input = "Hi. How are you? This is Mike.";
-        String input = para;
+        //String input = para;
 
         //ObjectStream<String> lineStream = new PlainTextByLineStream(new StringReader(input),charset);
         perfMon.start();
         String line;
 //        while ((line = lineStream.read()) != null) {
 
-        String whitespaceTokenizerLine[] = WhitespaceTokenizer.INSTANCE
-                .tokenize(input);
+        String whitespaceTokenizerLine[] = para;
+//                WhitespaceTokenizer.INSTANCE
+//                .tokenize(input);
         String[] tags = tagger.tag(whitespaceTokenizerLine);
-
+        System.out.println("POSTag:-");
         POSSample sample = new POSSample(whitespaceTokenizerLine, tags);
         System.out.println(sample.toString());
-        System.out.println("");
-
         perfMon.incrementCounter();
 //        }
         perfMon.stopAndPrintFinalResult();
+        System.out.println("Normalization:-");
+        for (String a : para)
+            System.out.println(normalization.norm(a));
     }
 }

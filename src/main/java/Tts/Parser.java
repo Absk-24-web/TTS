@@ -23,7 +23,7 @@ public class Parser {
 //        String sentence = "Programcreek is a very huge and useful website.";
         String sentence = para;
         Parse topParses[] = ParserTool.parseLine(sentence, parser, 1);
-
+        System.out.println("Parser:-");
         for (Parse p : topParses)
             p.show();
 
