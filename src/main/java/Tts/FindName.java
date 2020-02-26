@@ -9,28 +9,31 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class FindName {
+    public  POSTag posTag = new POSTag();
 
-    public static void findName() throws IOException {
+    public  void findName(String[] token) throws IOException {
         InputStream is = new FileInputStream("src/main/resources/en-ner-person.bin");
+
 
         TokenNameFinderModel model = new TokenNameFinderModel(is);
         is.close();
 
         NameFinderME nameFinder = new NameFinderME(model);
 
-        String []sentence =
-                new String[]{
-                        "Mike",
-                        "Smith",
-                        "is",
-                        "a",
-                        "good",
-                        "person"
-                };
-
+        String []sentence = token;
+//                new String[]{
+//                        "Mike",
+//                        "and",
+//                        "Smith",
+//                        "is",
+//                        "a",
+//                        "good",
+//                        "person"
+//                };
         Span nameSpans[] = nameFinder.find(sentence);
-
+            System.out.println("FindName:-");
         for(Span s: nameSpans)
             System.out.println(s.toString());
+        posTag.POSTag(token);
     }
 }
