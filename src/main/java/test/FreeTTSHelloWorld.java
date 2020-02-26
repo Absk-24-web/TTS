@@ -1,3 +1,5 @@
+package test;
+
 import com.sun.speech.freetts.FreeTTS;
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;

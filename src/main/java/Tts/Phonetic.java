@@ -329,7 +329,8 @@ public class Phonetic {
 
         if (soundex.length()>1){
 //            System.out.println(soundex);
-            return soundex;
+            String sound = soundex;
+            return sound;
         }
         else
             return "";

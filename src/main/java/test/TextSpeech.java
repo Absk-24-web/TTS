@@ -1,3 +1,5 @@
+package test;
+
 import java.util.Locale;
 import javax.speech.Central;
 import javax.speech.synthesis.Synthesizer;
