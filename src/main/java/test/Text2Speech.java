@@ -1,3 +1,5 @@
+package test;
+
 import javax.speech.*;
 import java.util.*;
 import javax.speech.synthesis.*;
