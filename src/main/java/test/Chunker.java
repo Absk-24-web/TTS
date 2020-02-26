@@ -1,3 +1,5 @@
+package test;
+
 import opennlp.tools.chunker.ChunkerME;
 import opennlp.tools.chunker.ChunkerModel;
 import opennlp.tools.lemmatizer.DictionaryLemmatizer;
@@ -8,7 +10,7 @@ import java.io.*;
 public class Chunker {
 
 /**
- * Chunker Example in Apache OpenNLP
+ * test.Chunker Example in Apache OpenNLP
  */
 
     public static void main(String[] args){
@@ -39,7 +41,7 @@ public class Chunker {
             String[] chunks = chunker.chunk(tokens,tags);
 
             // printing the results
-            System.out.println("\nChunker Example in Apache OpenNLP\nPrinting chunks for the given sentence...");
+            System.out.println("\ntest.Chunker Example in Apache OpenNLP\nPrinting chunks for the given sentence...");
             System.out.println("\nTOKEN - POS_TAG - CHUNK_ID\n-------------------------");
             for(int i=0;i< chunks.length;i++){
                 System.out.println(tokens[i]+" - "+tags[i]+" - "+chunks[i]);
