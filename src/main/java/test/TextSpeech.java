@@ -46,3 +46,19 @@ public class TextSpeech {
         }
     }
 }
+
+
+
+//Loading the tokenizer model
+//        InputStream inputStreamTokenizer = new
+//                FileInputStream("src/main/resources/en-token (1).bin");
+//        TokenizerModel tokenModel = new TokenizerModel(inputStreamTokenizer);
+//
+//        //Instantiating the TokenizerME class
+//        TokenizerME tokenizer = new TokenizerME(tokenModel);
+//
+//        //Tokenizing the sentence in to a string array
+//        String sentence = "Mike is senior programming manager and Rama is a clerk both are working at"+
+//        "Tutorialspoint";
+//        String tokens[] =
+//                tokenizer.tokenize(sentence);

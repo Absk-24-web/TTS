@@ -10,21 +10,24 @@ import java.io.*;
 public class SentenceDetect {
     public Tokenizer tokenizer = new Tokenizer();
 
+//    public static void main(String[] args) {
+//        SentenceDetect sentenceDetect = new SentenceDetect();
+//
+//    }
+
     public void SentenceDetect(String para) throws InvalidFormatException,
             IOException {
-
-//        String paragraph = "Hi. How are you? This is Mike.";
-        String paragraph = para;
 
         // always start with a model, a model is learned from training data
         InputStream is = new FileInputStream("src/main/resources/en-sent.bin");
         SentenceModel model = new SentenceModel(is);
-        SentenceDetectorME sdetector = new SentenceDetectorME(model);
+        SentenceDetectorME sDetector = new SentenceDetectorME(model);
 
-        String sentences[] = sdetector.sentDetect(paragraph);
+        String paragraph = para;
+        String sentences[] = sDetector.sentDetect(paragraph);
         //Detecting the position of the sentences in the raw text
-        Span spans[] = sdetector.sentPosDetect(paragraph);
-        double[] probs = sdetector.getSentenceProbabilities();
+        Span spans[] = sDetector.sentPosDetect(paragraph);
+        double[] probs = sDetector.getSentenceProbabilities();
         System.out.println("Sentences Detector:-");
         for (int i = 0; i < sentences.length; i++) {
             System.out.println(sentences[i]);
@@ -35,6 +38,17 @@ public class SentenceDetect {
         tokenizer.Tokenize(paragraph);
         is.close();
     }
+
+
+//    public void sentence(){
+//        String sentence = " Hi. How are you? Welcome to Tutorialspoint. "
+//                + "We provide free tutorials on various technologies";
+//
+//        String simple = "[.?!]";
+//        String[] splitString = (sentence.split(simple));
+//        for (String string : splitString)
+//            System.out.println(string);
+//    }
 
 }
 
