@@ -12,7 +12,8 @@ public class TTS {
 
     public static void main(String args[]) throws IOException {
         System.out.println("Enter the Paragraph or Sentences:");
-        sentenceDetect.SentenceDetect(scan.nextLine());
+//        sentenceDetect.SentenceDetect(scan.nextLine());
+        tokenizer.Tokenize(scan.nextLine());
 //            System.out.println(phonetic.generatePhonetic(scan.nextLine()));
 //        System.out.println(normalization.norm(scan.nextLine()));
 //        findName();
@@ -22,4 +23,9 @@ public class TTS {
 //        Parser();
     }
 }
-//    Hi. How are you? This is  Mike occurred.
+//    Hi. How are you? This is  Mike. And This Space is Occurred.
+
+//    Hi. How are you? Welcome to Tutorialspoint. We provide free tutorials on various technologies
+
+//    Mike or Rama is senior programming manager both are working at Delhi or Noida.
+//    Mine is from Delhi and Mike is from Noida.
