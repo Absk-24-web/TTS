@@ -1,34 +1,6 @@
 package Tts;
-/**
- * @author E. Bergé
- * @translated from PHP to Java by Christophe Schutz
- *
- * Ce code source est distribué sous la licence Creative Commons Paternité - Pas d'Utilisation Commerciale 2.0 (sauf autorisation)
- */
+
 public class Phonetic {
-
-
-    /**
-     * Permet de générer le soundex d'un string
-     * @param str le string à traiter
-     * @return str le soundex du string
-     */
-
-	/*
-	Brève description de l'algorithme
-	On formate d'abord le mot. Remplacement des accents et caractères spéciaux, puis passage en majuscules. Certaines occurences linguistiques sont traitées,
-	puis on supprime toutes les répétitions de lettres. Quelques cas particuliers sont traités. Ce sont des mots très courts qui supportent mal la simplification.
-	Viennent ensuite les pré-traitements. Ce sont principalement des terminaisons muettes et des combinaisons complexes de voyelles.
-	La grosse partie de la conversion peut commencer. Simplification des sons YEU, K, WEU, GUEU, SION, UN, AN, O ainsi que les muettes.
-	Une fois le gros de la troupe passé, on procède aux retouches (le détail est commenté dans le source).
-	On termine avec les...       ... terminaisons! Suppression des muettes, simplification de sons.
-	Certains mots courts auront beaucoup souffert de la simplification. C'est pourquoi en début et fin d'algorithme (avant les terminaisons), on aura gardé une copie
-	du code obtenu. On tente alors une "récupération" du code. Si le code n'est pas trop court, on le renvoie. Si le code n'est composé que de consonnes, on suppose alors
-	que c'est un sigle, qu'on renvoie aussi.
-	Il faut bien comprendre que cet algorithme a été développé de façon empirique, avec un corpus de test et une grosse part d'intuition, car il est aussi prévu pour
-	fonctionner avec des mots mal orthographiés et/ou inconnus. D'où son comportement de conversion en phonétique. Et quoi qu'il en soit, ce programme n'est qu'une petite
-	partie d'un moteur de recherche. Il y a beaucoup d'astuces à ajouter pour réaliser un moteur de recherche performant. Bon courage!
-	 */
 
     public  String generatePhonetic(String str) {
 

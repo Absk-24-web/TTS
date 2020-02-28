@@ -12,17 +12,16 @@ import java.io.InputStream;
 
 public class Parser {
 
-    public static void Parser(String para) throws InvalidFormatException, IOException {
+    public  void Parser(String para) throws InvalidFormatException, IOException {
         // http://sourceforge.net/apps/mediawiki/opennlp/index.php?title=Parser#Training_Tool
-        InputStream is = new FileInputStream("src/main/resources/en-parser-chunking.bin");
+        InputStream is = new FileInputStream("src/main/resources/LIB-Model/en-parser-chunking.bin");
 
         ParserModel model = new ParserModel(is);
 
         opennlp.tools.parser.Parser parser = ParserFactory.create(model);
 
 //        String sentence = "Programcreek is a very huge and useful website.";
-        String sentence = para;
-        Parse topParses[] = ParserTool.parseLine(sentence, parser, 1);
+        Parse topParses[] = ParserTool.parseLine(para, parser, 1);
         System.out.println("Parser:-");
         for (Parse p : topParses)
             p.show();

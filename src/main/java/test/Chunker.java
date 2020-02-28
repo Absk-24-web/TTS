@@ -2,7 +2,6 @@ package test;
 
 import opennlp.tools.chunker.ChunkerME;
 import opennlp.tools.chunker.ChunkerModel;
-import opennlp.tools.lemmatizer.DictionaryLemmatizer;
 import opennlp.tools.postag.POSModel;
 import opennlp.tools.postag.POSTaggerME;
 
@@ -32,7 +31,7 @@ public class Chunker {
             String tags[] = posTagger.tag(tokens);
 
             // reading the chunker model
-            InputStream ins = new FileInputStream("models"+File.separator+"en-chunker.bin");
+            InputStream ins = new FileInputStream("models"+File.separator+ "LIB-Model/en-chunker.bin");
             // loading the chunker model
             ChunkerModel chunkerModel = new ChunkerModel(ins);
             // initializing chunker(maximum entropy) with chunker model
