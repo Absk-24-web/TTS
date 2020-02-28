@@ -1,5 +1,6 @@
 package Tts;
 
+import opennlp.tools.parser.Parse;
 import opennlp.tools.sentdetect.SentenceDetectorME;
 import opennlp.tools.sentdetect.SentenceModel;
 import opennlp.tools.util.InvalidFormatException;
@@ -9,6 +10,8 @@ import java.io.*;
 
 public class SentenceDetect {
     public Tokenizer tokenizer = new Tokenizer();
+    public Phonetic phonetic =new Phonetic();
+    public Parser parser = new Parser();
 
 //    public static void main(String[] args) {
 //        SentenceDetect sentenceDetect = new SentenceDetect();
@@ -19,23 +22,25 @@ public class SentenceDetect {
             IOException {
 
         // always start with a model, a model is learned from training data
-        InputStream is = new FileInputStream("src/main/resources/en-sent.bin");
+        InputStream is = new FileInputStream("src/main/resources/LIB-Model/en-sent.bin");
         SentenceModel model = new SentenceModel(is);
         SentenceDetectorME sDetector = new SentenceDetectorME(model);
 
-        String paragraph = para;
-        String sentences[] = sDetector.sentDetect(paragraph);
+        String sentences[] = sDetector.sentDetect(para);
         //Detecting the position of the sentences in the raw text
-        Span spans[] = sDetector.sentPosDetect(paragraph);
-        double[] probs = sDetector.getSentenceProbabilities();
+        Span spans[] = sDetector.sentPosDetect(para);
+        double[] prob = sDetector.getSentenceProbabilities();
         System.out.println("Sentences Detector:-");
         for (int i = 0; i < sentences.length; i++) {
             System.out.println(sentences[i]);
             System.out.println(spans[i]);
-//                System.out.println(probs[i]);
+//                System.out.println(prob[i]);
         }
         System.out.println("");
-        tokenizer.Tokenize(paragraph);
+        tokenizer.Tokenize(para);
+        System.out.println("Phonetic:-");
+        System.out.println(phonetic.generatePhonetic(para));
+        parser.Parser(para);
         is.close();
     }
 

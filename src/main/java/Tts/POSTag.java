@@ -11,23 +11,14 @@ import java.io.File;
 import java.io.IOException;
 
 public class POSTag {
-
-    public Normalization normalization = new Normalization();
+    public Chunk chunk =new Chunk();
 
     public  void POSTag(String [] para) throws IOException {
         POSModel model = new POSModelLoader()
-                .load(new File("src/main/resources/en-pos-maxent.bin"));
+                .load(new File("src/main/resources/LIB-Model/en-pos-maxent.bin"));
         PerformanceMonitor perfMon = new PerformanceMonitor(System.err, "sent");
         POSTaggerME tagger = new POSTaggerME(model);
-
-//        Charset charset = Charset.forName("UTF-8");
-//        String input = "Hi. How are you? This is Mike.";
-        //String input = para;
-
-        //ObjectStream<String> lineStream = new PlainTextByLineStream(new StringReader(input),charset);
         perfMon.start();
-        String line;
-//        while ((line = lineStream.read()) != null) {
 
         String whitespaceTokenizerLine[] = para;
 //                WhitespaceTokenizer.INSTANCE
@@ -37,10 +28,10 @@ public class POSTag {
         POSSample sample = new POSSample(whitespaceTokenizerLine, tags);
         System.out.println(sample.toString());
         perfMon.incrementCounter();
-//        }
         perfMon.stopAndPrintFinalResult();
-        System.out.println("Normalization:-");
-        for (String a : para)
-            System.out.println(normalization.norm(a));
+        chunk.chunk(sample.toString());
+        //System.out.println("Normalization:-");
+        //for (String a : para)
+        //    System.out.println(normalization.norm(a));
     }
 }

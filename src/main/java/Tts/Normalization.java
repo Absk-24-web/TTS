@@ -17,8 +17,6 @@ public String norm (String input){
     input = input.replaceAll("\\\\", "").trim();
     input = input.replaceAll("\\s/\\s", "").trim();
     input = input.replaceAll("^/\\s", "").trim();
-
-
     input = porterStemmer.stem(input);
     return input;
 }
